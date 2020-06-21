@@ -39,10 +39,10 @@ if `--force` option is specified.
 
 # AUTHORS
 
-IKEDA Kiyoshi <yasutake.kiyoshi@gmail.com>
+IKEDA Kiyoshi <progrhyme@gmail.com>
 
 # LICENSE
 
 The MIT License (MIT)
 
-Copyright (c) 2016 IKEDA Kiyoshi
+Copyright (c) 2016-2020 IKEDA Kiyoshi
