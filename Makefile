@@ -1,4 +1,4 @@
-.PHONY: doc release
+.PHONY: doc release shove
 
 BIN     := ./links
 VERSION := $(shell $(BIN) -v)
@@ -12,8 +12,23 @@ README.md: $(BIN)
 
 doc: README.md
 
+test: shove
+	@set -e; \
+	vendor/shove/bin/shove -r t -v
+
 release: README.md
 	git commit -m $(VERSION)
 	git tag -a v$(VERSION) -m $(VERSION)
 	git push origin v$(VERSION)
 	git push origin master
+
+shove: vendor
+	@echo checkout or update vendor/shove
+	@if [ -d vendor/shove ]; then \
+		cd vendor/shove && git pull origin master; \
+	else \
+		git clone --depth=1 https://github.com/progrhyme/shove.git vendor/shove; \
+	fi
+
+vendor:
+	mkdir vendor
