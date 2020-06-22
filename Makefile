@@ -18,6 +18,7 @@ test: shove
 
 release: README.md
 	git commit -m $(VERSION)
+	test $$(git status --short | wc -l) -eq 0
 	git tag -a v$(VERSION) -m $(VERSION)
 	git push origin v$(VERSION)
 	git push origin master
