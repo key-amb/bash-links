@@ -1,3 +1,9 @@
+## 0.9.3 (2020-06-22)
+
+Change:
+
+- Output notice/warn/error messages to STDERR
+
 ## 0.9.2 (2020-06-22)
 
 Minor Fix:
