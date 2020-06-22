@@ -1,3 +1,13 @@
+## 0.10.0 (2020-06-23)
+
+Change:
+
+- Exit 1 when `links` fails to make a link
+
+Other:
+
+- Add some tests using [progrhyme/shove](https://github.com/progrhyme/shove)
+
 ## 0.9.3 (2020-06-22)
 
 Change:
