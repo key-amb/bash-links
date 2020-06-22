@@ -51,7 +51,7 @@ for opt in "$@"; do
         elif [[ -z $DST ]]; then
           DST=$1
         else
-          echo "[WARN] Too many argument: $1"
+          echo "[WARN] Too many argument: $1" >&2
         fi
         shift
       fi
@@ -60,11 +60,11 @@ for opt in "$@"; do
 done
 
 if [[ -z $SRC ]]; then
-  echo "[ERROR] No source specified!"
+  echo "[ERROR] No source specified!" >&2
   help
   exit 1
 elif [[ ! -e $SRC ]]; then
-  echo "[ERROR] No source exist! Path: ${SRC}"
+  echo "[ERROR] No source exist! Path: ${SRC}" >&2
   exit 1
 fi
 
@@ -83,16 +83,16 @@ if [[ -L $DST ]]; then
     verbose "[OK] Already linked: ${DST} -> ${SRC}"
     exit 0
   else
-    echo "[NOTICE] Link different: ${DST} -> ${curr_link}"
+    echo "[NOTICE] Link different: ${DST} -> ${curr_link}" >&2
     if [[ -z $FORCE ]]; then
       exit 0
     fi
   fi
 elif [[ -d $DST ]]; then
-  echo "[NOTICE] Directory exists: ${DST}"
+  echo "[NOTICE] Directory exists: ${DST}" >&2
   exit 0
 elif [[ -e $DST ]]; then
-  echo "[NOTICE] File exists: ${DST}"
+  echo "[NOTICE] File exists: ${DST}" >&2
   exit 0
 fi
 
