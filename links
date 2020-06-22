@@ -85,15 +85,15 @@ if [[ -L $DST ]]; then
   else
     echo "[NOTICE] Link different: ${DST} -> ${curr_link}" >&2
     if [[ -z $FORCE ]]; then
-      exit 0
+      exit 1
     fi
   fi
 elif [[ -d $DST ]]; then
   echo "[NOTICE] Directory exists: ${DST}" >&2
-  exit 0
+  exit 1
 elif [[ -e $DST ]]; then
   echo "[NOTICE] File exists: ${DST}" >&2
-  exit 0
+  exit 1
 fi
 
 ln_cmd=$LN
